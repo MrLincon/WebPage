@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script>
+        // Change this to your app's custom URI scheme
+        const redirectUri = 'com.example.enovato_oauth://callback';
+
+        // Google Play Store search URL for your app
+        const playStoreUrl = 'https://play.google.com/store/search?q=keep&c=apps&hl=en';
+
+        // Function to redirect to the app
+        function redirectToApp() {
+            // Try to open the app
+            window.location = redirectUri;
+
+            // Fallback in case the app is not installed
+            setTimeout(() => {
+                window.location = playStoreUrl; // Redirect to the Play Store search
+            }, 2000); // 2 seconds delay
+        }
+    </script>
+</head>
+<body onload="redirectToApp()">
+    <h1>Redirecting to Your App...</h1>
+    <p>If you are not redirected automatically, <a href="https://play.google.com/store/search?q=keep&c=apps&hl=en">click here to search for the app on the Play Store</a>.</p>
+</body>
+</html>
